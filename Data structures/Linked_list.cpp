@@ -1,50 +1,112 @@
 #include <iostream>
-template <typename T>
+template <class T>
 class Stack
 {
     private:
-    struct Node
+    struct Node //Node is item and next
     {
         T item;
-        Node *next;
+        Node * next;
     };
-    Node *top, *current;
-
+    // top and current are not for node, they are for the list (stack)
+    Node * top, * current;
     public:
-    Stack() : top(NULL)
+    Stack():top(Null)
     {
 
     }
+    
     void push(T value)
     {
-        Node *newItem
-    }
-    void pop()
-    {
-        if (Empty())
+        Node *newItem = new Node; //create node in heap when pushing a value
         {
-            std::cout <<"stack is empty on pop ";
+            if (newItem ==NULL)
+            {
+                std::cout<<"stack push cannot allocate memory";
+            }
         }
         else
         {
-            Node *temp = top;
+            newItem->item = value;
+            newItem->next = top;
+            top = newItem;
+        }
+    }
+    bool isEmpty()
+    {
+        return top==NULL;
+    }
+    void pop()
+    {
+        if(isEmpty())
+        {
+            std::cout<<"stack is empty on pop";
+        }
+        else
+        {
+            Node * temp = top;
             top = top->next;
-            temp->next = NULL;
-            delete temp;
+            temp->next = Null;
+            delete temp; //remove from heap
         }
     }
     void pop(T &stackTop)
     {
-        if (Empty())
+        if(isEmpty())
         {
             std::cout<<"stack is empty on pop save";
         }
         else
         {
-            stackTop = Top->item;
-            Node *temp = top;
+            stackTop = top->item;
+            Node * temp = top;
             top = top->next;
             temp->next = Null;
+            delete temp; //remove from heap
         }
     }
+    void getTop(T &topItem)
+    {
+        if(isEmpty())
+        {
+            std::cout<<"stack is empty on get top";
+        }
+        else
+        {
+            topItem = top->item;
+            std::cout<<topItem;
+        }
+    }
+    void display()
+    {
+        current = top;
+        std::cout<<"\n Items in stack : ";
+        std::cout<<"[ ";
+        while (current !=Null)
+        {
+            std::cout<<current->item;
+            current = current->next;
+            std::cout<<", ";
+        }
+        std::cout<<" ]\n";
+    }
+};
+
+int main()
+{
+    Stack<int> list;
+    list.push(1);
+    list.push(2);
+    list.push(5);
+    list.push(10);
+    list.push(20);
+    list.push(60);
+    list.pop();
+    list.display();
+
+    int top = 0;
+    std::cout<<"top item is : ";
+    list.getTop(top);
+
+    return 0;
 }
