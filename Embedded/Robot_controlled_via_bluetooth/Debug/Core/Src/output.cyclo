@@ -1,0 +1,5 @@
+../Core/Src/output.cpp:11:1:Output::Output(GPIO_TypeDef*, uint8_t)	3
+../Core/Src/output.cpp:31:2:Output::~Output()	1
+../Core/Src/output.cpp:36:7:void Output::On()	1
+../Core/Src/output.cpp:41:8:void Output::Off()	1
+../Core/Src/output.cpp:46:8:void Output::Toggle()	1

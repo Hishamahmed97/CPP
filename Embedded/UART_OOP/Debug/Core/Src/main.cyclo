@@ -1,0 +1,7 @@
+../Core/Inc/Uart.h:26:2:UART::UART()	2
+../Core/Inc/Uart.h:38:7:void UART::UART1_Initialize()	1
+../Core/Inc/Uart.h:57:7:char UART::read()	2
+../Core/Inc/Uart.h:62:7:void UART::sendChar(char)	1
+../Core/Inc/Uart.h:66:7:void UART::sendString(char*)	2
+../Core/Inc/Uart.h:78:9:static void* UART::operator new(size_t, UARTInstance)	1
+../Core/Src/main.cpp:3:5:int main()	2
